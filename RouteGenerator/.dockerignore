@@ -1,0 +1,7 @@
+node_modules
+.git
+.cache
+build
+dist  # Important: Exclude the 'dist' folder initially
+.env* # Exclude any .env files
+docker-compose.yml
