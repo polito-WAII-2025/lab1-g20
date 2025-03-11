@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RouteAnalyzer.iml" filepath="$PROJECT_DIR$/.idea/modules/RouteAnalyzer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RouteAnalyzer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RouteAnalyzer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RouteAnalyzer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/RouteAnalyzer.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/it.polito.wa2.g20.routeanalyzer.iml" filepath="$PROJECT_DIR$/.idea/modules/it.polito.wa2.g20.routeanalyzer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lab1-g20.iml" filepath="$PROJECT_DIR$/.idea/lab1-g20.iml" />
     </modules>
   </component>
