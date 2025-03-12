@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    kotlin("plugin.serialization") version "2.1.10"
     application
     id("com.gradleup.shadow") version "8.3.5"
 }
@@ -14,6 +15,7 @@ repositories {
 
 dependencies {
     implementation("com.uber:h3:4.1.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     testImplementation(kotlin("test"))
 }
 

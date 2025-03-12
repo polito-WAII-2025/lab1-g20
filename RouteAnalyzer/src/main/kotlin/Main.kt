@@ -1,15 +1,30 @@
 package it.polito.wa2.g20.routeanalyzer
-import com.uber.h3core.H3Core
+import it.polito.wa2.g20.routeanalyzer.model.RouteAnalysis
+import it.polito.wa2.g20.routeanalyzer.service.CsvParser
+import it.polito.wa2.g20.routeanalyzer.service.DistanceCalculator
+import it.polito.wa2.g20.routeanalyzer.service.HotspotAnalyzer
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import java.io.File
 
-fun example(): Long {
-    val h3 = H3Core.newInstance()
-    val lat = 37.7955
-    val lng = -122.3937
-    val res = 10
-    return h3.latLngToCell(lat, lng, res)
-}//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
 
-    println("Cell: " + example())
+    val inputStream = CsvParser::class.java.getResourceAsStream("/waypoints.csv")
+
+    if (inputStream == null) {
+        println("File not found!")
+        return
+    }
+    val waypoints = CsvParser.parseCsv(inputStream)
+    println("Loaded ${waypoints.size} waypoints.")
+
+    val maxDistanceFrom = DistanceCalculator.maxDistanceFrom(waypoints[0].latitude, waypoints[0].longitude, waypoints)
+    // val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(params)
+    // val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(params)
+    val result = RouteAnalysis(maxDistanceFrom)
+
+    val outputFile = File("output.json")
+    val jsonOutput = Json.encodeToString(result)
+    outputFile.writeText(jsonOutput)
+    println("Output written to output.json")
 }
