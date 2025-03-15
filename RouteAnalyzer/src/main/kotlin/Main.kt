@@ -19,9 +19,10 @@ fun main() {
     println("Loaded ${waypoints.size} waypoints.")
 
     val maxDistanceFrom = DistanceCalculator.maxDistanceFrom(waypoints[0].latitude, waypoints[0].longitude, waypoints)
-    // val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(params)
+    val accurateMostFrequentedAreaPoint = HotspotAnalyzer.findAccurateMostVisitedArea(waypoints, 10.0)
     // val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(params)
-    val result = RouteAnalysis(maxDistanceFrom)
+    val result = RouteAnalysis(maxDistanceFrom, accurateMostFrequentedAreaPoint)
+
 
     val outputFile = File("output.json")
     val jsonOutput = Json.encodeToString(result)
