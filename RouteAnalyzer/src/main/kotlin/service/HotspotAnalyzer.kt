@@ -1,12 +1,12 @@
 package it.polito.wa2.g20.routeanalyzer.service
 
-import it.polito.wa2.g20.routeanalyzer.model.AccurateMostFrequentedAreaPoint
+import it.polito.wa2.g20.routeanalyzer.model.AccurateMostFrequentedArea
 import it.polito.wa2.g20.routeanalyzer.model.Point
 import it.polito.wa2.g20.routeanalyzer.model.Waypoint
 
 object HotspotAnalyzer {
 
-    fun findAccurateMostVisitedArea(waypoints: List<Waypoint>, radius: Double): AccurateMostFrequentedAreaPoint? {
+    fun findAccurateMostVisitedArea(waypoints: List<Waypoint>, radius: Double): AccurateMostFrequentedArea? {
         val radiusM = radius * 1000
         // get resolution from radius
         val res = H3Utils.getResolution(radiusM)
@@ -30,7 +30,7 @@ object HotspotAnalyzer {
         val bestCellCount = densityScores[bestCell]
         val bestCellLatLng = H3Utils.h3ToGeo(bestCell)
 
-        return AccurateMostFrequentedAreaPoint(
+        return AccurateMostFrequentedArea(
             Point(bestCellLatLng.first, bestCellLatLng.second),
             bestCellCount ?: 0,
             radius
