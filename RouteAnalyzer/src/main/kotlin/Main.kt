@@ -3,25 +3,37 @@ import it.polito.wa2.g20.routeanalyzer.model.RouteAnalysis
 import it.polito.wa2.g20.routeanalyzer.service.CsvParser
 import it.polito.wa2.g20.routeanalyzer.service.DistanceCalculator
 import it.polito.wa2.g20.routeanalyzer.service.HotspotAnalyzer
+import it.polito.wa2.g20.routeanalyzer.service.YmlParser
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
 
 fun main() {
 
-    val inputStream = CsvParser::class.java.getResourceAsStream("/waypoints.csv")
+    val inputStream1 = CsvParser::class.java.getResourceAsStream("/waypoints.csv")
+    val inputStream2 = YmlParser::class.java.getResourceAsStream("/custom-parameters.yml")
 
-    if (inputStream == null) {
-        println("File not found!")
+    if (inputStream1 == null) {
+        println("waypoints.csv not found!")
         return
     }
-    val waypoints = CsvParser.parseCsv(inputStream)
+
+    if (inputStream2 == null) {
+        println("custom-parameters.yaml not found!")
+        return
+    }
+
+    val waypoints = CsvParser.parseCsv(inputStream1)
+    val ymlParams = YmlParser.parseYml(inputStream2, waypoints)
+
+    val mostFrequentedAreaRadiusKm = ymlParams.mostFrequentedAreaRadiusKm
+
     println("Loaded ${waypoints.size} waypoints.")
 
     val maxDistanceFrom = DistanceCalculator.maxDistanceFrom(waypoints[0].latitude, waypoints[0].longitude, waypoints)
-    // val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(params)
-    // val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(params)
-    val result = RouteAnalysis(maxDistanceFrom)
+    val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
+
+    val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea)
 
     val outputFile = File("output.json")
     val jsonOutput = Json.encodeToString(result)
