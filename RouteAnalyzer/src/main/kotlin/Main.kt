@@ -1,10 +1,6 @@
 package it.polito.wa2.g20.routeanalyzer
 import it.polito.wa2.g20.routeanalyzer.model.RouteAnalysis
-import it.polito.wa2.g20.routeanalyzer.service.CsvParser
-import it.polito.wa2.g20.routeanalyzer.service.DistanceCalculator
-import it.polito.wa2.g20.routeanalyzer.service.HotspotAnalyzer
-import it.polito.wa2.g20.routeanalyzer.service.YmlParser
-import it.polito.wa2.g20.routeanalyzer.service.GeofenceAnalyzer
+import it.polito.wa2.g20.routeanalyzer.service.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -35,7 +31,7 @@ fun main() {
     val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
     val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
 
-    val result = RouteAnalysis(maxDistanceFrom, waypointsOutsideGeofence)
+    val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
 
     val outputFile = File("output.json")
     val jsonOutput = Json.encodeToString(result)
