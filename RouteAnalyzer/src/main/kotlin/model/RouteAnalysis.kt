@@ -14,6 +14,7 @@ data class MostFrequentedArea(
     val areaRadiusKm: Double,
     val entriesCount: Int
 )
+
 @Serializable
 data class WaypointsOutsideGeofence(
     val centralWaypoint: Waypoint,
@@ -26,5 +27,5 @@ data class WaypointsOutsideGeofence(
 data class RouteAnalysis(
     val maxDistanceFromStart: MaxDistanceFromStart,
     val mostFrequentedArea: MostFrequentedArea,
-    val waypointsOutsideGeofence: WaypointsOutsideGeofence
+    val waypointsOutsideGeofence: WaypointsOutsideGeofence,
 )
