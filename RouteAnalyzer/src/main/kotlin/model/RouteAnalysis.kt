@@ -9,16 +9,6 @@ data class MaxDistanceFromStart(
 )
 
 @Serializable
-data class Point(val latitude: Double, val longitude: Double)
-
-@Serializable
-data class AccurateMostFrequentedArea(
-    val center: Point,
-    val entriesCount: Int,
-    val areaRadiusKm: Double,
-)
-
-@Serializable
 data class MostFrequentedArea(
     val centralWaypoint: Waypoint?,
     val areaRadiusKm: Double,
@@ -36,7 +26,6 @@ data class WaypointsOutsideGeofence(
 @Serializable
 data class RouteAnalysis(
     val maxDistanceFromStart: MaxDistanceFromStart,
-    // val mostFrequentedArea: MostFrequentedArea,
+    val mostFrequentedArea: MostFrequentedArea,
     val waypointsOutsideGeofence: WaypointsOutsideGeofence,
-    val mostFrequentedArea: AccurateMostFrequentedArea?,
 )

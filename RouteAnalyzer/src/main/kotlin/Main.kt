@@ -1,5 +1,6 @@
 package it.polito.wa2.g20.routeanalyzer
 import it.polito.wa2.g20.routeanalyzer.model.RouteAnalysis
+import it.polito.wa2.g20.routeanalyzer.model.RouteAnalysisAdvanced
 import it.polito.wa2.g20.routeanalyzer.service.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -32,11 +33,16 @@ fun main() {
     val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
     val accurateMostFrequentedArea = HotspotAnalyzer.findAccurateMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
 
-    val result = RouteAnalysis(maxDistanceFrom, waypointsOutsideGeofence, accurateMostFrequentedArea)
+    val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
+    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea)
 
 
     val outputFile = File("output.json")
+    val outputFileAdvanced = File("output_advanced.json")
     val jsonOutput = Json.encodeToString(result)
+    val jsonOutputAdvanced = Json.encodeToString(resultAdvanced)
     outputFile.writeText(jsonOutput)
+    outputFileAdvanced.writeText(jsonOutputAdvanced)
     println("Output written to output.json")
+    println("Output written to output_advanced.json")
 }
