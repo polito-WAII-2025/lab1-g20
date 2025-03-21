@@ -13,7 +13,6 @@ object DistanceCalculator {
         val maxDistanceKm = H3Utils.haversineDistance(startLat, startLon, maxWaypoint.latitude, maxWaypoint.longitude)
 
         return MaxDistanceFromStart(maxWaypoint, maxDistanceKm)
-
     }
 
     fun maxDistance(waypoints: List<Waypoint>): Double {
@@ -30,5 +29,6 @@ object DistanceCalculator {
 
         return maxDistance
     }
+
 
 }
