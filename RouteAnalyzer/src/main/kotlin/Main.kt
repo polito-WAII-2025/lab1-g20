@@ -22,16 +22,13 @@ fun main() {
 
     val waypoints = CsvParser.parseCsv(inputStream1)
     val ymlParams = YmlParser.parseYml(inputStream2, waypoints)
-
-    val earthRadius = ymlParams.earthRadius
     val geofence = ymlParams.geofence
     val mostFrequentedAreaRadiusKm = ymlParams.mostFrequentedAreaRadiusKm
 
     println("Loaded ${waypoints.size} waypoints.")
 
     val maxDistanceFrom = DistanceCalculator.maxDistanceFrom(waypoints[0].latitude, waypoints[0].longitude, waypoints)
-
-    // val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(params)
+    val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
     val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
     val accurateMostFrequentedArea = HotspotAnalyzer.findAccurateMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
 
