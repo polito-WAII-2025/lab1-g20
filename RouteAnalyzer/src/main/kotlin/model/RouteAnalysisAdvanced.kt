@@ -14,6 +14,13 @@ data class AccurateMostFrequentedArea(
 )
 
 @Serializable
+data class PathDirection(
+    val degreesDirection: Double,
+    val cardinalDirection: String,
+)
+
+@Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
+    val pathDirection: PathDirection,
 )
