@@ -16,4 +16,5 @@ data class AccurateMostFrequentedArea(
 @Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
+    val approximateTotalDistance: Double,
 )
