@@ -1,6 +1,7 @@
-package it.polito.wa2.g20.routeanalyzer.service
-import it.polito.wa2.g20.routeanalyzer.model.MaxDistanceFromStart
-import it.polito.wa2.g20.routeanalyzer.model.Waypoint
+package it.polito.wa2.g20.service
+
+import it.polito.wa2.g20.model.MaxDistanceFromStart
+import it.polito.wa2.g20.model.Waypoint
 
 object DistanceCalculator {
 
@@ -20,7 +21,12 @@ object DistanceCalculator {
 
         for (waypoint in waypoints) {
             for (otherWaypoint in waypoints) {
-                val distance = H3Utils.haversineDistance(waypoint.latitude, waypoint.longitude, otherWaypoint.latitude, otherWaypoint.longitude)
+                val distance = H3Utils.haversineDistance(
+                    waypoint.latitude,
+                    waypoint.longitude,
+                    otherWaypoint.latitude,
+                    otherWaypoint.longitude
+                )
                 if (distance > maxDistance) {
                     maxDistance = distance
                 }

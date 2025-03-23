@@ -1,9 +1,9 @@
-package it.polito.wa2.g20.routeanalyzer.service
+package it.polito.wa2.g20.service
 
-import it.polito.wa2.g20.routeanalyzer.model.AccurateMostFrequentedArea
-import it.polito.wa2.g20.routeanalyzer.model.MostFrequentedArea
-import it.polito.wa2.g20.routeanalyzer.model.Point
-import it.polito.wa2.g20.routeanalyzer.model.Waypoint
+import it.polito.wa2.g20.model.AccurateMostFrequentedArea
+import it.polito.wa2.g20.model.MostFrequentedArea
+import it.polito.wa2.g20.model.Point
+import it.polito.wa2.g20.model.Waypoint
 
 
 object HotspotAnalyzer {
@@ -47,7 +47,12 @@ object HotspotAnalyzer {
             var cont = 0
 
             for(waypoint in waypoints){
-                val distance = H3Utils.haversineDistance(centralWaypoint.latitude,centralWaypoint.longitude,waypoint.latitude,waypoint.longitude)
+                val distance = H3Utils.haversineDistance(
+                    centralWaypoint.latitude,
+                    centralWaypoint.longitude,
+                    waypoint.latitude,
+                    waypoint.longitude
+                )
 
                 if(distance < mostFrequentedAreaRadiusKm){
                     cont++
