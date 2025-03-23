@@ -41,7 +41,7 @@ object HotspotAnalyzer {
 
     fun findMostVisitedArea(waypoints: List<Waypoint>, mostFrequentedAreaRadiusKm: Double): MostFrequentedArea {
         var maxWaypoint: Waypoint? = null
-        var maxWaypointEntriesCount: Int = -1
+        var maxWaypointEntriesCount: Int = 0
 
         for (centralWaypoint in waypoints) {
             var cont = 0
