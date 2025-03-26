@@ -8,18 +8,21 @@ import java.io.File
 
 fun main() {
 
-    val inputStream1 = CsvParser::class.java.getResourceAsStream("/waypoints.csv")
-    val inputStream2 = YmlParser::class.java.getResourceAsStream("/custom-parameters.yml")
+    val file1 = File("/app/data/waypoints.csv")
+    val file2 = File("/app/data/custom-parameters.yml")
 
-    if (inputStream1 == null) {
+    if (!file1.exists()) {
         println("waypoints.csv not found!")
         return
     }
 
-    if (inputStream2 == null) {
+    if (!file2.exists()) {
         println("custom-parameters.yaml not found!")
         return
     }
+
+    val inputStream1 = file1.inputStream()
+    val inputStream2 = file2.inputStream()
 
     val waypoints = CsvParser.parseCsv(inputStream1)
     val ymlParams = YmlParser.parseYml(inputStream2, waypoints)
@@ -50,8 +53,8 @@ fun main() {
     )
 
 
-    val outputFile = File("output.json")
-    val outputFileAdvanced = File("output_advanced.json")
+    val outputFile = File("/app/data/output.json")
+    val outputFileAdvanced = File("/app/data/output_advanced.json")
     val jsonOutput = Json.encodeToString(result)
     val jsonOutputAdvanced = Json.encodeToString(resultAdvanced)
     outputFile.writeText(jsonOutput)
