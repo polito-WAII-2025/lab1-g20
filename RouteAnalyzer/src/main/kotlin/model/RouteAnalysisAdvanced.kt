@@ -14,7 +14,15 @@ data class AccurateMostFrequentedArea(
 )
 
 @Serializable
+data class RootTypeSummary(
+    val highway: Double,
+    val countyRoad: Double,
+    val cityRoad: Double
+)
+
+@Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
     val approximateTotalDistance: Double,
+    val rootTypeSummary: RootTypeSummary
 )

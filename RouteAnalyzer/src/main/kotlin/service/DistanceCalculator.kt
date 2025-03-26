@@ -48,7 +48,7 @@ object DistanceCalculator {
         return totalDistance
     }
 
-    fun computeTotalDistance2(waypoints: List<Waypoint>): Double {
+    fun computeTotalDistance(waypoints: List<Waypoint>): Double {
         var maxDistance = 0.0
         val totalDistance = computeTotalHaversineDistance(waypoints)
         for (i in 0 until waypoints.size - 1) {
