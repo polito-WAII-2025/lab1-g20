@@ -35,9 +35,15 @@ fun main() {
     val distanceByRootType = RootTypeAnalyzer.distanceForRootType(waypoints)
     val fuelEfficiency = FuelEfficiency(RootTypeSummary(10.0, 7.6923, 6.25), FuelEfficiencyUnit.L_100km)
     val fuelConsumedL = FuelAnalyzer.fuelConsumption(fuelEfficiency, distanceByRootType)
-
+    val averageSpeed = DistanceCalculator.averageSpeed(waypoints)
     val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
-    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, approximateTotalDistance, distanceByRootType, fuelConsumedL)
+    val resultAdvanced = RouteAnalysisAdvanced(
+        accurateMostFrequentedArea,
+        approximateTotalDistance,
+        distanceByRootType,
+        fuelConsumedL,
+        averageSpeed
+    )
 
 
     val outputFile = File("output.json")
