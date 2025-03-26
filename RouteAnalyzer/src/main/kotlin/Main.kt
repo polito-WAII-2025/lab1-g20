@@ -32,10 +32,11 @@ fun main() {
     val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
     val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
     val accurateMostFrequentedArea = HotspotAnalyzer.findAccurateMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
+    val approximateTotalDistance = DistanceCalculator.computeTotalDistance2(waypoints)
     val distanceByRootType = RootTypeAnalyzer.distanceForRootType(waypoints)
 
     val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
-    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, distanceByRootType)
+    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, approximateTotalDistance, distanceByRootType)
 
 
     val outputFile = File("output.json")
