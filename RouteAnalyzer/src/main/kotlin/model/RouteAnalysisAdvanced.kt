@@ -21,8 +21,16 @@ data class RootTypeSummary(
 )
 
 @Serializable
+data class EstimatedFuelConsumptionL(
+    val total: Double,
+    val roadSpecific: RootTypeSummary,
+)
+
+
+@Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
     val approximateTotalDistance: Double,
-    val rootTypeSummary: RootTypeSummary
+    val rootTypeSummary: RootTypeSummary,
+    val estimatedFuelConsumptionL: EstimatedFuelConsumptionL
 )
