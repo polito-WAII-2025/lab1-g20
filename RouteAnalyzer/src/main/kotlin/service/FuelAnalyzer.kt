@@ -28,7 +28,11 @@ object FuelAnalyzer {
                 .setScale(2, RoundingMode.HALF_EVEN).toDouble(),
         )
 
-        val totalFuel = fuelByRootType.highway + fuelByRootType.countyRoad + fuelByRootType.cityRoad
+        val totalFuel =
+            BigDecimal(fuelByRootType.highway + fuelByRootType.countyRoad + fuelByRootType.cityRoad).setScale(
+                2,
+                RoundingMode.HALF_EVEN
+            ).toDouble()
 
         return EstimatedFuelConsumptionL(
             totalFuel,
