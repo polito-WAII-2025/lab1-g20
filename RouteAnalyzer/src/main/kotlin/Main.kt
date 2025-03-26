@@ -36,7 +36,7 @@ fun main() {
     val pathDirection = DirectionPathCalculator.computeAverageDirectionPath(waypoints)
 
     val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
-    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, approximateTotalDistance)
+    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, approximateTotalDistance, pathDirection)
 
 
     val outputFile = File("output.json")
