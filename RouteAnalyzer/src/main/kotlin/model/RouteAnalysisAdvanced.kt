@@ -22,5 +22,6 @@ data class PathDirection(
 @Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
+    val approximateTotalDistance: Double,
     val pathDirection: PathDirection,
 )

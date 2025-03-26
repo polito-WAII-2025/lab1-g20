@@ -52,14 +52,14 @@ function computeIntermediatePoints(route: Coordinate[], speed: number, startTime
     while (distance > wayToGo-residualDistance ) {
       lat1 += (wayToGo-residualDistance) / distance * (lat2 - lat1);
       lng1 += (wayToGo-residualDistance) / distance * (lng2 - lng1);
-      currentTime += wayToGo/speed;
+      currentTime += wayToGo/speed*1000;
       waypoints.push({lat: lat1, lng: lng1, time: currentTime});
       distance = L.latLng(lat1, lng1).distanceTo(L.latLng(lat2, lng2));
       residualDistance = 0;
     }
     residualDistance += distance;
   }
-  waypoints.push({lat: route[route.length-1][1], lng: route[route.length-1][0], time: currentTime+residualDistance/speed});
+  waypoints.push({lat: route[route.length-1][1], lng: route[route.length-1][0], time: currentTime+residualDistance/speed*1000});
   return waypoints;
 }
 
@@ -152,7 +152,7 @@ function SidePanel(
           <div>
             Total duration: {
             waypoints.length > 0 ?
-              new Date((waypoints[waypoints.length - 1].time - waypoints[0].time) * 1000).toISOString().substring(11, 19)
+              new Date(waypoints[waypoints.length - 1].time - waypoints[0].time).toISOString().substring(11, 19)
               : 0} hours
           </div>
           <div>
