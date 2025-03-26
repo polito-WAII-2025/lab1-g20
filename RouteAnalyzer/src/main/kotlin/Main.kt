@@ -31,13 +31,14 @@ fun main() {
     val mostFrequentedArea = HotspotAnalyzer.findMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
     val waypointsOutsideGeofence = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
     val accurateMostFrequentedArea = HotspotAnalyzer.findAccurateMostVisitedArea(waypoints, mostFrequentedAreaRadiusKm)
+    val approximateTotalDistance = DistanceCalculator.computeTotalDistance(waypoints)
     val distanceByRootType = RootTypeAnalyzer.distanceForRootType(waypoints)
-
     val fuelEfficiency = FuelEfficiency(RootTypeSummary(10.0, 7.6923, 6.25), FuelEfficiencyUnit.L_100km)
     val fuelConsumedL = FuelAnalyzer.fuelConsumption(fuelEfficiency, distanceByRootType)
 
     val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
-    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, distanceByRootType, fuelConsumedL)
+    val resultAdvanced = RouteAnalysisAdvanced(accurateMostFrequentedArea, approximateTotalDistance, distanceByRootType, fuelConsumedL)
+
 
     val outputFile = File("output.json")
     val outputFileAdvanced = File("output_advanced.json")
