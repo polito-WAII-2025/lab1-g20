@@ -30,7 +30,7 @@ data class EstimatedFuelConsumptionL(
 @Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
-    val approximateTotalDistance: Double,
-    val rootTypeSummary: RootTypeSummary,
+    val approximateTotalDistanceKm: Double,
+    val rootTypeSummaryKm: RootTypeSummary,
     val estimatedFuelConsumptionL: EstimatedFuelConsumptionL
 )
