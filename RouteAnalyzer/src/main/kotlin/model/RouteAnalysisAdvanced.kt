@@ -32,5 +32,6 @@ data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
     val approximateTotalDistanceKm: Double,
     val rootTypeSummaryKm: RootTypeSummary,
-    val estimatedFuelConsumptionL: EstimatedFuelConsumptionL
+    val estimatedFuelConsumptionL: EstimatedFuelConsumptionL,
+    val averageSpeedKmH: Double,
 )

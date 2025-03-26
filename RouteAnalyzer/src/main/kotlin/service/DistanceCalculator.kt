@@ -65,4 +65,13 @@ object DistanceCalculator {
         val avgDistance = (totalDistance / waypoints.size + maxDistance) / 2
         return avgDistance * waypoints.size
     }
+
+    fun averageSpeed(waypoints: List<Waypoint>): Double {
+        if (waypoints.size < 2) {
+            throw IllegalArgumentException("Waypoints list is empty")
+        }
+        val totalDistance = computeTotalDistance(waypoints)
+        val totalDuration = (waypoints.last().timestamp - waypoints.first().timestamp) / 3600000
+        return BigDecimal(totalDistance / totalDuration).setScale(2, RoundingMode.HALF_EVEN).toDouble()
+    }
 }
