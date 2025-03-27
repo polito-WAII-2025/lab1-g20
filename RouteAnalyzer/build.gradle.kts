@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    kotlin("plugin.serialization") version "2.1.10"
     application
     id("com.gradleup.shadow") version "8.3.5"
 }
@@ -14,6 +15,10 @@ repositories {
 
 dependencies {
     implementation("com.uber:h3:4.1.1")
+    implementation("org.yaml:snakeyaml:2.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+    implementation("org.yaml:snakeyaml:2.0")
+    testImplementation("io.mockk:mockk:1.13.17")
     testImplementation(kotlin("test"))
 }
 
@@ -25,5 +30,5 @@ kotlin {
 }
 
 application {
-    mainClass.set("it.polito.wa2.g20.routeanalyzer.MainKt")
+    mainClass.set("it.polito.wa2.g20.MainKt")
 }
