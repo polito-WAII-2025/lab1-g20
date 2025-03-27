@@ -26,6 +26,11 @@ data class EstimatedFuelConsumptionL(
     val roadSpecific: RootTypeSummary,
 )
 
+@Serializable
+data class PathDirection(
+    val degreesDirection: Double,
+    val cardinalDirection: String,
+)
 
 @Serializable
 data class RouteAnalysisAdvanced(
@@ -34,4 +39,5 @@ data class RouteAnalysisAdvanced(
     val rootTypeSummaryKm: RootTypeSummary,
     val estimatedFuelConsumptionL: EstimatedFuelConsumptionL,
     val averageSpeedKmH: Double,
+    val pathDirection: PathDirection
 )
