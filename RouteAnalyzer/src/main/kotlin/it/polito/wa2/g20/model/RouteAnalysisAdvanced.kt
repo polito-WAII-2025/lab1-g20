@@ -14,6 +14,30 @@ data class AccurateMostFrequentedArea(
 )
 
 @Serializable
+data class RootTypeSummary(
+    val highway: Double,
+    val countyRoad: Double,
+    val cityRoad: Double
+)
+
+@Serializable
+data class EstimatedFuelConsumptionL(
+    val total: Double,
+    val roadSpecific: RootTypeSummary,
+)
+
+@Serializable
+data class PathDirection(
+    val degreesDirection: Double,
+    val cardinalDirection: String,
+)
+
+@Serializable
 data class RouteAnalysisAdvanced(
     val accurateMostFrequentedArea: AccurateMostFrequentedArea?,
+    val approximateTotalDistanceKm: Double,
+    val rootTypeSummaryKm: RootTypeSummary,
+    val estimatedFuelConsumptionL: EstimatedFuelConsumptionL,
+    val averageSpeedKmH: Double,
+    val pathDirection: PathDirection
 )
