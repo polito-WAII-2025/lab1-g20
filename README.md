@@ -39,7 +39,16 @@ South-East, East, North-East).
 
 ## How to run the application
 
+### On Linux-based systems
+
 ```
     docker build -t lab1-g20 .
     docker run -it -v ./evaluation:/app/data lab1-g20
+```
+
+### On Windows systems
+
+```
+    docker build -t lab1-g20 .
+    docker run -it -v .\evaluation:/app/data lab1-g20
 ```
