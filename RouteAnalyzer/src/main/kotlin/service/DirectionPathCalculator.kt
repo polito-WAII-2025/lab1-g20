@@ -6,7 +6,7 @@ import kotlin.math.*
 
 object DirectionPathCalculator {
     fun computeAverageDirectionPath(waypoints: List<Waypoint>): PathDirection{
-        val bearings = mutableListOf<Double>()
+        val coordsList = mutableListOf<Pair<Double, Double>>()
 
         for(i in 0 until waypoints.size - 1){
             val lat1 = waypoints[i].latitude
@@ -14,16 +14,16 @@ object DirectionPathCalculator {
             val lat2 = waypoints[i + 1].latitude
             val lon2 = waypoints[i + 1].longitude
 
-            val bearing = computeBearing(lat1, lon1, lat2, lon2)
-            bearings.add(bearing)
+            val coords = computeBearingCoords(lat1, lon1, lat2, lon2)
+            coordsList.add(coords)
         }
 
-        val bearingAvg = computeAverageBearing(bearings)
+        val bearingAvg = computeAverageBearing(coordsList)
 
         return PathDirection(bearingAvg, bearingToCardinal(bearingAvg))
     }
 
-    fun computeBearing(lat1: Double, lon1: Double, lat2: Double, lon2: Double) : Double{
+    fun computeBearingCoords(lat1: Double, lon1: Double, lat2: Double, lon2: Double) : Pair<Double, Double> {
         val lat1Rad = Math.toRadians(lat1)
         val lat2Rad = Math.toRadians(lat2)
         val lon1Rad = Math.toRadians(lon1)
@@ -31,32 +31,31 @@ object DirectionPathCalculator {
 
         val diffLon1 = lon2Rad - lon1Rad
 
-        val x = sin(diffLon1) * cos(lat2Rad)
-        val y = cos(lat1Rad) * sin(lat2Rad) - sin(lat1Rad) * cos(lat2Rad) * cos(diffLon1)
-        var bearing = atan2(y, x)
+        val y = sin(diffLon1) * cos(lat2Rad)
+        val x = cos(lat1Rad) * sin(lat2Rad) - sin(lat1Rad) * cos(lat2Rad) * cos(diffLon1)
 
-        bearing = (bearing + 360) % 360
+        val bearing = atan2(y, x)
 
-        return bearing
+        return Pair(cos(bearing), sin(bearing))
     }
 
     fun bearingToCardinal(bearing: Double): String{
         return when {
-            bearing >= 337.5 || bearing < 22.5 -> "Nord"
-            bearing >= 22.5 && bearing < 67.5 -> "Nord-Est"
-            bearing >= 67.5 && bearing < 112.5 -> "Est"
-            bearing >= 112.5 && bearing < 157.5 -> "Sud-Est"
-            bearing >= 157.5 && bearing < 202.5 -> "Sud"
-            bearing >= 202.5 && bearing < 247.5 -> "Sud-Ovest"
-            bearing >= 247.5 && bearing < 292.5 -> "Ovest"
-            bearing >= 292.5 && bearing < 337.5 -> "Nord-Ovest"
+            bearing >= 337.5 || bearing < 22.5 -> "North"
+            bearing >= 22.5 && bearing < 67.5 -> "North-East"
+            bearing >= 67.5 && bearing < 112.5 -> "East"
+            bearing >= 112.5 && bearing < 157.5 -> "South-East"
+            bearing >= 157.5 && bearing < 202.5 -> "South"
+            bearing >= 202.5 && bearing < 247.5 -> "South-West"
+            bearing >= 247.5 && bearing < 292.5 -> "West"
+            bearing >= 292.5 && bearing < 337.5 -> "North-West"
             else -> "Invalid direction"
         }
     }
 
-    fun computeAverageBearing(bearings: List<Double>): Double{
-        val x = bearings.sumOf { cos(Math.toRadians(it)) }
-        val y = bearings.sumOf { sin(Math.toRadians(it)) }
+    fun computeAverageBearing(coords: List<Pair<Double, Double>>): Double{
+        val x = coords.sumOf { it.first}
+        val y = coords.sumOf { it.second }
 
         var avgBearing = Math.toDegrees(atan2(y, x))
         avgBearing = (avgBearing + 360) % 360
