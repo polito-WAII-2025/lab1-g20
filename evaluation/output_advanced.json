@@ -1,0 +1,25 @@
+{
+  "accurateMostFrequentedArea": {
+    "center": {
+      "latitude": 45.34297439058754,
+      "longitude": 9.225743451222469
+    },
+    "entriesCount": 322,
+    "areaRadiusKm": 10.0
+  },
+  "approximateTotalDistanceKm": 1246.5032716416952,
+  "rootTypeSummaryKm": {
+    "highway": 1211.9081697855072,
+    "countyRoad": 2.6905597215263533,
+    "cityRoad": 24.694813776356714
+  },
+  "estimatedFuelConsumptionL": {
+    "total": 122.94,
+    "roadSpecific": {
+      "highway": 121.19,
+      "countyRoad": 0.21,
+      "cityRoad": 1.54
+    }
+  },
+  "averageSpeedKmH": 98.45
+}
