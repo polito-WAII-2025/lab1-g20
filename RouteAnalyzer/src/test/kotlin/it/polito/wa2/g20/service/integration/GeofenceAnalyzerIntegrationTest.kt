@@ -19,8 +19,8 @@ class GeofenceAnalyzerIntegrationTest {
     fun `countWaypointsOutsideArea should return 0 when all waypoints are inside`() {
         val geofence = Geofence(40.0, -3.0, 100.0)
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.5, -2.5),
-            Waypoint(1742057612971.0, 40.2, -2.8)
+            Waypoint(1742057612809, 40.5, -2.5),
+            Waypoint(1742057612971, 40.2, -2.8)
         )
 
         val result = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
@@ -33,9 +33,9 @@ class GeofenceAnalyzerIntegrationTest {
     fun `countWaypointsOutsideArea should count waypoints outside`() {
         val geofence = Geofence(40.0, -3.0, 2.0)
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 43.0, -3.0),
-            Waypoint(1742057612971.0, 40.5, -2.5),
-            Waypoint(1742057613134.0, 42.0, -3.5)
+            Waypoint(1742057612809, 43.0, -3.0),
+            Waypoint(1742057612971, 40.5, -2.5),
+            Waypoint(1742057613134, 42.0, -3.5)
         )
 
         val result = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
@@ -59,7 +59,7 @@ class GeofenceAnalyzerIntegrationTest {
     fun `countWaypointsOutsideArea should work with one waypoint inside`() {
         val geofence = Geofence(40.0, -3.0, 100.0)
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.5, -2.5)
+            Waypoint(1742057612809, 40.5, -2.5)
         )
 
         val result = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)
@@ -72,7 +72,7 @@ class GeofenceAnalyzerIntegrationTest {
     fun `countWaypointsOutsideArea should work with one waypoint outside`() {
         val geofence = Geofence(40.0, -3.0, 2.0)
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 43.0, -3.0)
+            Waypoint(1742057612809, 43.0, -3.0)
         )
 
         val result = GeofenceAnalyzer.countWaypointsOutsideArea(geofence, waypoints)

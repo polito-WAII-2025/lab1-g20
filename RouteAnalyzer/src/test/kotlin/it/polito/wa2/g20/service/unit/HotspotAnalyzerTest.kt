@@ -58,9 +58,9 @@ class HotspotAnalyzerTest {
     @Test
     fun `findAccurateMostVisitedArea should return the most frequented area`() {
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.0, -3.0),
-            Waypoint(1742057612971.0, 40.0, -3.0),
-            Waypoint(1742057613134.0, 41.0, -3.1)
+            Waypoint(1742057612809, 40.0, -3.0),
+            Waypoint(1742057612971, 40.0, -3.0),
+            Waypoint(1742057613134, 41.0, -3.1)
         )
         val radius = 1.0 // 1 km
 
@@ -86,9 +86,9 @@ class HotspotAnalyzerTest {
     @Test
     fun `findMostVisitedArea should return the waypoint with most nearby points`() {
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.0, -3.0),
-            Waypoint(1742057612971.0, 40.0, -3.0),
-            Waypoint(1742057613134.0, 41.0, -3.1)
+            Waypoint(1742057612809, 40.0, -3.0),
+            Waypoint(1742057612971, 40.0, -3.0),
+            Waypoint(1742057613134, 41.0, -3.1)
         )
         val radius = 1.0 // 1 km
 

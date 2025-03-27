@@ -42,9 +42,9 @@ class DistanceCalculatorTest {
         val startLat = 40.0
         val startLon = -3.0
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 41.0, -3.1),
-            Waypoint(1742057612971.0, 42.0, -3.2),
-            Waypoint(1742057613134.0, 43.0, -3.3)
+            Waypoint(1742057612809, 41.0, -3.1),
+            Waypoint(1742057612971, 42.0, -3.2),
+            Waypoint(1742057613134, 43.0, -3.3)
         )
 
         val result = DistanceCalculator.maxDistanceFrom(startLat, startLon, waypoints)
@@ -74,7 +74,7 @@ class DistanceCalculatorTest {
         val startLat = 40.0
         val startLon = -3.0
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 41.0, -3.1)
+            Waypoint(1742057612809, 41.0, -3.1)
         )
 
         every { H3Utils.haversineDistance(startLat, startLon, any(), any()) } answers {
@@ -92,9 +92,9 @@ class DistanceCalculatorTest {
     @Test
     fun `maxDistance should return the maximum pairwise distance`() {
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.0, -3.0),
-            Waypoint(1742057612971.0, 41.0, -3.1),
-            Waypoint(1742057613134.0, 42.0, -3.2)
+            Waypoint(1742057612809, 40.0, -3.0),
+            Waypoint(1742057612971, 41.0, -3.1),
+            Waypoint(1742057613134, 42.0, -3.2)
         )
 
         val result = DistanceCalculator.maxDistance(waypoints)
@@ -115,7 +115,7 @@ class DistanceCalculatorTest {
     @Test
     fun `maxDistance should return 0 when waypoints list has only one waypoint`() {
         val waypoints = listOf(
-            Waypoint(1742057612809.0, 40.0, -3.0)
+            Waypoint(1742057612809, 40.0, -3.0)
         )
 
         val result = DistanceCalculator.maxDistance(waypoints)

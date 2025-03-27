@@ -1,7 +1,6 @@
 package it.polito.wa2.g20
 
-import it.polito.wa2.g20.model.RouteAnalysis
-import it.polito.wa2.g20.model.RouteAnalysisAdvanced
+import it.polito.wa2.g20.model.*
 import it.polito.wa2.g20.service.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
