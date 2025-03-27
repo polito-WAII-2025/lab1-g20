@@ -18,6 +18,6 @@ object GeofenceAnalyzer {
             }
         }
 
-        return WaypointsOutsideGeofence(Waypoint(0.0, geofence.latitude, geofence.longitude), geofence.radius, count, outsideWaypoints)
+        return WaypointsOutsideGeofence(Waypoint(0L, geofence.latitude, geofence.longitude), geofence.radius, count, outsideWaypoints)
     }
 }
