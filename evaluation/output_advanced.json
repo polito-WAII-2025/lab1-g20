@@ -9,17 +9,21 @@
   },
   "approximateTotalDistanceKm": 1246.5032716416952,
   "rootTypeSummaryKm": {
-    "highway": 1211.9081697855072,
-    "countyRoad": 2.6905597215263533,
-    "cityRoad": 24.694813776356714
+    "highway": 1214.247013682559,
+    "countyRoad": 0.40386692877228925,
+    "cityRoad": 24.642662672059462
   },
   "estimatedFuelConsumptionL": {
-    "total": 122.94,
+    "total": 122.99,
     "roadSpecific": {
-      "highway": 121.19,
-      "countyRoad": 0.21,
+      "highway": 121.42,
+      "countyRoad": 0.03,
       "cityRoad": 1.54
     }
   },
-  "averageSpeedKmH": 98.45
+  "averageSpeedKmH": 103.88,
+  "pathDirection": {
+    "degreesDirection": 127.66131652393017,
+    "cardinalDirection": "South-East"
+  }
 }

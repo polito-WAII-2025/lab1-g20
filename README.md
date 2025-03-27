@@ -46,3 +46,8 @@
     docker build -t lab1-g20 .
     docker run -it -v .\evaluation:/app/data lab1-g20
 ```
+
+### Input and output data
+
+The input files `custom-parameters.yaml` and `waypoints.yaml` should be placed in the `evaluation` directory.
+The output files will be generated in the same directory.
