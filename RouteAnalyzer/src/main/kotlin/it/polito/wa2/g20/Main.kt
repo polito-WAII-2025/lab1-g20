@@ -1,6 +1,8 @@
-package it.polito.wa2.g20.routeanalyzer
-import it.polito.wa2.g20.routeanalyzer.model.*
-import it.polito.wa2.g20.routeanalyzer.service.*
+package it.polito.wa2.g20
+
+import it.polito.wa2.g20.model.RouteAnalysis
+import it.polito.wa2.g20.model.RouteAnalysisAdvanced
+import it.polito.wa2.g20.service.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -37,7 +39,7 @@ fun main() {
     val fuelConsumedL = FuelAnalyzer.fuelConsumption(fuelEfficiency, distanceByRootType)
     val averageSpeed = DistanceCalculator.averageSpeed(waypoints)
     val pathDirection = DirectionPathCalculator.computeAverageDirectionPath(waypoints)
-    
+
     val result = RouteAnalysis(maxDistanceFrom, mostFrequentedArea, waypointsOutsideGeofence)
     val resultAdvanced = RouteAnalysisAdvanced(
         accurateMostFrequentedArea,

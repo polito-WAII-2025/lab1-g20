@@ -1,6 +1,6 @@
-package it.polito.wa2.g20.routeanalyzer.service
+package it.polito.wa2.g20.service
 
-import it.polito.wa2.g20.routeanalyzer.model.Waypoint
+import it.polito.wa2.g20.model.Waypoint
 import java.io.InputStream
 import kotlin.math.floor
 

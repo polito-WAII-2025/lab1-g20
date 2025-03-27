@@ -1,4 +1,4 @@
-package it.polito.wa2.g20.routeanalyzer.model
+package it.polito.wa2.g20.model
 
 data class Geofence(
     val latitude: Double,

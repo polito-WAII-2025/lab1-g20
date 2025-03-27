@@ -1,7 +1,7 @@
-package it.polito.wa2.g20.routeanalyzer.service
+package it.polito.wa2.g20.service
 
-import it.polito.wa2.g20.routeanalyzer.model.Waypoint
-import it.polito.wa2.g20.routeanalyzer.model.PathDirection
+import it.polito.wa2.g20.model.Waypoint
+import it.polito.wa2.g20.model.PathDirection
 import kotlin.math.*
 
 object DirectionPathCalculator {

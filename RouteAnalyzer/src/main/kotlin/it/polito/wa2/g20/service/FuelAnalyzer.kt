@@ -1,9 +1,9 @@
-package it.polito.wa2.g20.routeanalyzer.service
+package it.polito.wa2.g20.service
 
-import it.polito.wa2.g20.routeanalyzer.model.EstimatedFuelConsumptionL
-import it.polito.wa2.g20.routeanalyzer.model.FuelEfficiency
-import it.polito.wa2.g20.routeanalyzer.model.FuelEfficiencyUnit
-import it.polito.wa2.g20.routeanalyzer.model.RootTypeSummary
+import it.polito.wa2.g20.model.EstimatedFuelConsumptionL
+import it.polito.wa2.g20.model.FuelEfficiency
+import it.polito.wa2.g20.model.FuelEfficiencyUnit
+import it.polito.wa2.g20.model.RootTypeSummary
 import java.math.BigDecimal
 import java.math.RoundingMode
 

@@ -1,4 +1,4 @@
-package it.polito.wa2.g20.routeanalyzer.service
+package it.polito.wa2.g20.service
 
 import com.uber.h3core.AreaUnit
 import com.uber.h3core.H3Core

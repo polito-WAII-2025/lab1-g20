@@ -1,6 +1,6 @@
-package it.polito.wa2.g20.routeanalyzer.service
-import it.polito.wa2.g20.routeanalyzer.model.MaxDistanceFromStart
-import it.polito.wa2.g20.routeanalyzer.model.Waypoint
+package it.polito.wa2.g20.service
+import it.polito.wa2.g20.model.MaxDistanceFromStart
+import it.polito.wa2.g20.model.Waypoint
 import java.math.BigDecimal
 import java.math.RoundingMode
 import kotlin.math.max
